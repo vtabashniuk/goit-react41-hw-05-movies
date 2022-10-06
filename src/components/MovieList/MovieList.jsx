@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import routes from 'routes/routes';
 
 export const MovieList = ({ movies }) => {
-  console.log(movies);
   return (
     <ul className={styles.list}>
       {movies.map(movie => (

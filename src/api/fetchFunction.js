@@ -5,10 +5,17 @@ const BASE_URL = 'https://api.themoviedb.org/3/';
 
 const getWeeklyTrending = async (media_type, time_window) => {
   const response = await axios.get(
-    `${BASE_URL}/trending/${media_type}/${time_window}`,
+    `${BASE_URL}trending/${media_type}/${time_window}`,
     { params: { api_key: API_KEY } }
   );
   return response;
 };
 
-export { getWeeklyTrending };
+const getMovieDetail = async id => {
+  const response = await axios.get(`${BASE_URL}movie/${id}`, {
+    params: { api_key: API_KEY, language: 'en-US' },
+  });
+  return response;
+};
+
+export { getWeeklyTrending, getMovieDetail };
