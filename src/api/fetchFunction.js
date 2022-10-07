@@ -12,10 +12,17 @@ const getWeeklyTrending = async (media_type, time_window) => {
 };
 
 const getMovieDetail = async id => {
-  const response = await axios.get(`${BASE_URL}movie/${id}`, {
+  const { data } = await axios.get(`${BASE_URL}movie/${id}`, {
     params: { api_key: API_KEY, language: 'en-US' },
   });
-  return response;
+  return data;
 };
 
-export { getWeeklyTrending, getMovieDetail };
+const getConfiguration = async () => {
+  const { data } = await axios.get(`${BASE_URL}configuration`, {
+    params: { api_key: API_KEY },
+  });
+  return data.images;
+};
+
+export { getWeeklyTrending, getMovieDetail, getConfiguration };
