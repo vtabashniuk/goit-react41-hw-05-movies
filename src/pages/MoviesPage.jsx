@@ -29,6 +29,8 @@ const MoviesPage = () => {
 
   return (
     <>
+      {/* temporary  */}
+      {console.log(totalPages)}
       <SearchBar onSubmit={handleSubmit} />
       {movies.length > 0 && <MovieList movies={movies} />}
     </>

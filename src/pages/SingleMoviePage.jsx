@@ -2,7 +2,6 @@ import { useParams, useNavigate, Link, Outlet } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { getMovieDetail, getConfiguration } from 'api/fetchFunction';
 import { makeImagePath } from '../utils/makeImagePath';
-import routes from 'routes/routes';
 
 const SingleMoviePage = () => {
   const { id } = useParams();
