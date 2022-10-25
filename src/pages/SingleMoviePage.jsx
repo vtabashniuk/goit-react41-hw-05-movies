@@ -1,12 +1,14 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, Link, Outlet } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { getMovieDetail, getConfiguration } from 'api/fetchFunction';
 import { makeImagePath } from '../utils/makeImagePath';
+import routes from 'routes/routes';
 
 const SingleMoviePage = () => {
   const { id } = useParams();
   const isFirstRender = useRef(true);
   const [movieInfo, setMovieInfo] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isFirstRender.current) {
@@ -44,11 +46,15 @@ const SingleMoviePage = () => {
   return (
     <>
       <h1>Single Movie Page</h1>
+      <button onClick={() => navigate(-1)}>go back</button>
       {movieInfo.original_title}
       <img
         src={movieInfo.posterImagePath}
         alt={`Poster: ${movieInfo.original_title}`}
       />
+      <Link to={'cast'}>cast</Link>
+      <Link to={'reviews'}>reviews</Link>
+      <Outlet />
     </>
   );
 };

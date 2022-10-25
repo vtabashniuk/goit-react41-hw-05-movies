@@ -7,7 +7,13 @@ export const MovieList = ({ movies }) => {
   return (
     <ul className={styles.list}>
       {movies.map(movie => (
-        <li key={movie.id}><NavLink to={`${routes.movies}/${movie.id}`}>{movie.title}</NavLink></li>
+        <li key={movie.id}>
+          <NavLink
+            to={`${routes.home}/${routes.movies}/${movie.id}`}
+          >
+            {movie.title}
+          </NavLink>
+        </li>
       ))}
     </ul>
   );

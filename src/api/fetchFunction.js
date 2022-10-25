@@ -25,4 +25,11 @@ const getConfiguration = async () => {
   return data.images;
 };
 
-export { getWeeklyTrending, getMovieDetail, getConfiguration };
+const getSearchMovies = async query => {
+  const { data } = await axios.get(`${BASE_URL}search/movie`, {
+    params: { api_key: API_KEY, query },
+  });
+  return data;
+};
+
+export { getWeeklyTrending, getMovieDetail, getConfiguration, getSearchMovies };

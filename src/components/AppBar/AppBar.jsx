@@ -8,9 +8,6 @@ export const AppBar = ({ labels }) => {
     <>
       <nav>
         <ul className={styles.list}>
-          {/* {buttonLabels.map((item, index) => (
-            <li key={index}><Button label={item} /></li>
-          ))} */}
           {labels.map((label, i) => (
             <NavLink key={i} to={routes[label]} className={styles.link}>
               {label}
