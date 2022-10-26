@@ -1,4 +1,4 @@
-export const makeImagePath = (base_url, sizes, image_path, type) => {
+export const makeImagePath = (secure_base_url, sizes, image_path, type) => {
   let size = '';
   let image_size = '';
 
@@ -14,5 +14,5 @@ export const makeImagePath = (base_url, sizes, image_path, type) => {
 
   image_size = sizes.filter(item => item === size);
 
-  return `${base_url}${image_size}${image_path}`;
+  return `${secure_base_url}${image_size}${image_path}`;
 };

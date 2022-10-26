@@ -4,29 +4,22 @@ import { makeImagePath } from '../utils/makeImagePath';
 import { useState, useEffect } from 'react';
 
 const HomePage = () => {
-  // const isFirstRender = useRef(true);
   const [movies, setmovies] = useState([]);
 
   useEffect(() => {
-    // if (isFirstRender.current) {
-    //   isFirstRender.current = false;
-    //   return;
-    // }
     const fetchData = async () => {
       const { data } = await getWeeklyTrending('movie', 'week');
-      const { base_url, poster_sizes } = await getConfiguration();
+      const { secure_base_url, poster_sizes } = await getConfiguration();
       const top20movies = data.results.map(item => ({
         id: item.id,
         title: item.title,
         posterImagePath: makeImagePath(
-          base_url,
+          secure_base_url,
           poster_sizes,
           item.poster_path,
           'details'
         ),
       }));
-      console.log(top20movies);
-      console.log(data.results);
       setmovies(top20movies);
     };
     fetchData();
