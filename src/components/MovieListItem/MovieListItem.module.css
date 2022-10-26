@@ -1,0 +1,22 @@
+.thumb {
+    display: flex;
+    flex-direction: column;  
+}
+
+.thumb:hover {
+    transform: scale(1.05);
+    transition: transform 200ms;
+    transition-timing-function: linear;
+    cursor:initial
+}
+  
+  .title {
+    height: max-content;
+    margin: 0 auto;
+    padding: 10px;
+    color: #332B5C;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 2;
+  }
