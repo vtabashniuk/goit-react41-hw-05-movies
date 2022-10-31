@@ -25,10 +25,11 @@ const getConfiguration = async () => {
   return data.images;
 };
 
-const getSearchMovies = async query => {
+const getSearchMovies = async (query, page) => {
   const { data } = await axios.get(`${BASE_URL}search/movie`, {
-    params: { api_key: API_KEY, query },
+    params: { api_key: API_KEY, query, page },
   });
+  console.log(data);
   return data;
 };
 

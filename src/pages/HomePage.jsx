@@ -28,7 +28,7 @@ const HomePage = () => {
   return (
     <>
       <div className="container">
-        <h1 className="homePageTitle">Week trending. Top 20</h1>
+        <h1 className="pageTitle">Week trending. Top 20</h1>
         {movies.length > 0 && <MovieList movies={movies} />}
       </div>
     </>
