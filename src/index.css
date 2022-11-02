@@ -7,7 +7,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #332B5C;
+  color: #332b5c;
+  background-color: whitesmoke;
 }
 
 code {
@@ -16,9 +17,9 @@ code {
 }
 
 header {
-  background-color: #F7C23B;
+  background-color: #f7c23b;
   padding: 20px;
-  box-shadow: 0px 10px 20px -10px rgba(51,43,92,1);
+  box-shadow: 0px 10px 20px -10px rgba(51, 43, 92, 1);
 }
 
 ul {
@@ -55,8 +56,8 @@ a {
 
 .movieImage {
   display: block;
-  width: max-content;
-  height: max-content;
+  max-width: 350px;
+  height: 100%;
 }
 
 .movieDescription {
@@ -93,7 +94,7 @@ a {
   box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
     rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
-  color: #DC3958;
+  color: #dc3958;
   cursor: pointer;
   display: block;
   font-family: -apple-system, system-ui, 'Segoe UI', Helvetica, Arial,
@@ -119,7 +120,7 @@ a {
   background-color: #f3f4f6;
   text-decoration: none;
   transition-duration: 0.1s;
-  border-color: #DC3958;
+  border-color: #dc3958;
 }
 
 .movieAdditionalLink:disabled {
@@ -145,4 +146,15 @@ a {
 
 .movieAdditionalLink:-webkit-details-marker {
   display: none;
+}
+
+.activeMovieAdditionalLink {
+  background-color: #dc3958;
+  color: #fafbfc;
+}
+
+.activeMovieAdditionalLink:hover {
+  background-color: #fafbfc;
+  color: #dc3958;
+  border: 1px solid rgba(27, 31, 35, 0.15);
 }

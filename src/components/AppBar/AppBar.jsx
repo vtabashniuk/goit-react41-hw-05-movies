@@ -9,7 +9,14 @@ export const AppBar = ({ labels }) => {
       <nav>
         <ul className={styles.list}>
           {labels.map((label, i) => (
-            <NavLink key={i} to={routes[label]} className={styles.link}>
+            <NavLink
+              key={i}
+              to={routes[label]}
+              className={({ isActive }) =>
+                isActive ? `${styles.link} ${styles.activeLink}` : styles.link
+              }
+              end
+            >
               {label}
             </NavLink>
           ))}

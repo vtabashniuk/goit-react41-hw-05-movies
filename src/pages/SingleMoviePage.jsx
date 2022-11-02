@@ -2,6 +2,8 @@ import { useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { getMovieDetail, getConfiguration } from 'api/fetchFunction';
 import { makeImagePath } from '../utils/makeImagePath';
+import { Button } from 'components/commons/Button/Button';
+import noImagePlaceholder from 'no-image-placeholder.svg';
 
 const SingleMoviePage = () => {
   const { id } = useParams();
@@ -23,9 +25,9 @@ const SingleMoviePage = () => {
         overview,
         poster_path,
       } = await getMovieDetail(id);
-      const { base_url, poster_sizes } = await getConfiguration();
+      const { secure_base_url, poster_sizes } = await getConfiguration();
       const posterImagePath = makeImagePath(
-        base_url,
+        secure_base_url,
         poster_sizes,
         poster_path,
         'details'
@@ -47,18 +49,25 @@ const SingleMoviePage = () => {
       <>
         <div className="container">
           <h1 className="pageTitle">{movieInfo.original_title}</h1>
-          {/* <button onClick={() => navigate(-1)}>go back</button> */}
+          <Button
+            label="&#8666; Go Back &#8666;"
+            onClick={() => navigate(-1)}
+            isFixed
+          />
           <div className="movieThumb">
             <img
               className="movieImage"
               src={movieInfo.posterImagePath}
               alt={`Poster: ${movieInfo.original_title}`}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null;
+                currentTarget.src = noImagePlaceholder;
+              }}
             />
             <div className="movieDescription">
               <p>Release date: {movieInfo.release_date}</p>
               <h3>Genres:</h3>
               <ul>
-                {console.log(movieInfo.genres)}
                 {movieInfo.genres.map(({ id, name }) => (
                   <li key={id}>{name}</li>
                 ))}
@@ -69,12 +78,26 @@ const SingleMoviePage = () => {
                 <h3>Additional info</h3>
                 <ul className="movieAdditionalList">
                   <li>
-                    <NavLink to={'cast'} className="movieAdditionalLink">
+                    <NavLink
+                      to={'cast'}
+                      className={({ isActive }) =>
+                        isActive
+                          ? 'movieAdditionalLink activeMovieAdditionalLink'
+                          : 'movieAdditionalLink'
+                      }
+                    >
                       cast
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to={'reviews'} className="movieAdditionalLink">
+                    <NavLink
+                      to={'reviews'}
+                      className={({ isActive }) =>
+                        isActive
+                          ? 'movieAdditionalLink activeMovieAdditionalLink'
+                          : 'movieAdditionalLink'
+                      }
+                    >
                       reviews
                     </NavLink>
                   </li>

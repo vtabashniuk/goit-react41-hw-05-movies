@@ -1,6 +1,9 @@
 .thumb {
     display: flex;
     flex-direction: column;  
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .thumb:hover {
