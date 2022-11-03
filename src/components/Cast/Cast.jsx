@@ -31,12 +31,12 @@ export const Cast = () => {
 
   return (
     <>
-      <h2>Cast</h2>
+      <h2 className={styles.title}>Cast</h2>
       <ul className={styles.castList}>
         {cast.map(({ cast_id, photo, character, name }) => (
           <li key={cast_id} className={styles.castItem}>
             <div className={styles.castBox}>
-              <img
+              <img className={styles.castImg}
                 src={photo}
                 alt={`${name}`}
                 onError={({ currentTarget }) => {
@@ -44,8 +44,8 @@ export const Cast = () => {
                   currentTarget.src = noImagePlaceholder;
                 }}
               />
-              <h4>Name: {name}</h4>
-              <p>Character: {character}</p>
+              <h4 className={styles.name}>Name: {name}</h4>
+              <p className={styles.character}>Character: {character}</p>
             </div>
           </li>
         ))}

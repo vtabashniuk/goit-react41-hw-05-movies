@@ -1,0 +1,14 @@
+.message {
+    margin: 0 0 0 30px;
+}
+
+.title {
+    margin: 0 0 10px 30px;
+}
+
+.errorMessage {
+    margin: 10px 0 0 30px;
+    color: #dc3958;
+    font-size: 14px;
+    font-weight: 500;
+}

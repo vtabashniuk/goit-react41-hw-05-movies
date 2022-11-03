@@ -36,6 +36,12 @@ a {
   text-decoration: none;
 }
 
+h3 {
+  margin: 0;
+  padding: 15px 0;
+  font-size: 18px;
+}
+
 .container {
   display: block;
   margin: 0 auto;
@@ -69,12 +75,6 @@ a {
 
 .movieDescription > p {
   margin: 0;
-}
-
-.movieDescription > h3 {
-  margin: 0;
-  padding: 15px 0;
-  font-size: 18px;
 }
 
 .movieOverview {

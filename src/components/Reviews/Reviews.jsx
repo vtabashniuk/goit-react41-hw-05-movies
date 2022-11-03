@@ -17,13 +17,13 @@ export const Reviews = () => {
 
   return (
     <>
-      <h2>Reviews</h2>
+      <h2 className={styles.title}>Reviews</h2>
       {review.length > 0 ? (
         <ul className={styles.reviewList}>
           {review.map(({ id, author, content }) => (
             <li key={id} className={styles.reviewItem}>
               <div className={styles.reviewInfo}>
-                <h4>Author: {author}</h4>
+                <h4 className={styles.author}>Author: {author}</h4>
                 <p className={styles.reviewText}>{content}</p>
               </div>
             </li>
