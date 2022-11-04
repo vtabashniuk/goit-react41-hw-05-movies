@@ -1,3 +1,7 @@
+.reviewSection {
+  position: relative;
+}
+
 .title {
   margin: 0 auto;
   padding-bottom: 10px;

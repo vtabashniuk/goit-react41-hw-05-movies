@@ -97,7 +97,7 @@ const SingleMoviePage = () => {
                 </ul>
                 <h3>Overview</h3>
                 <p className="movieOverview">{movieInfo.overview}</p>
-                <div className="additionalSection">
+                <div>
                   <h3>Additional info</h3>
                   <ul className="movieAdditionalList">
                     <li>
